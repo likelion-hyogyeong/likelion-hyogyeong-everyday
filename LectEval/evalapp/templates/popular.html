@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+    <style>
+        .popular{
+            font-weight: bold;
+            font-size:20px;
+        }
+    </style>
+</head>
+<body>
+    <br>
+    {% for b in posts %}
+        <hr>
+        <div class="card">
+            <div class="card-body">
+                <strong class="card-body-title">Title: {{b.title}}</strong><br>
+                <small>{{b.pub_date}}</small><br>
+                영역: <strong>{{b.field}}</strong> / 평점: <strong id="score">{{b.score}}</strong><br>
+                <div class="card-body-contents"><a href="{% url 'popular_detail' b.id %}" class="card-body-contents">{{b.summary}}...</a></div><br><br>
+            </div>
+        </div> 
+    {% endfor %}
+    <div class="blog-footer">
+        {% if posts.has_previous %}
+            <a href="?page=1" class="pgn">First</a>
+            <a href="?page={{posts.previous_page_number}}" class="pgn">Previous</a>
+        {% endif %}
+
+        <span class="pgn">{{posts.number}}</span>
+        <span class="pgn"> of </span>
+        <span class="pgn">{{posts.paginator.num_pages}}</span>
+
+        {% if posts.has_next %}
+            <a href="?page={{posts.next_page_number}}" class="pgn">Next</a>
+            <a href="?page={{posts.paginator.num_pages}}" class="pgn">Last</a>
+        {% endif %}
+    </div>
+</body>
+{% endblock %}

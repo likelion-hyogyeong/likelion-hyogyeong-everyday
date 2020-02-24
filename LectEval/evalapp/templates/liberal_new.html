@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+    <style>
+        .liberal{
+            font-weight: bold;
+            font-size:20px;
+        }
+    </style>
+</head>
+
+{% load crispy_forms_tags %}
+<form method="POST" enctype="multipart/form-data">
+    <p id = "warning">최대 5점. 5점을 초과하면 글이 안보입니다.</p>
+    <p id = "warning">제목은 강의이름으로 적어주세요!</p>
+    {% csrf_token%}
+        <table>
+            {{liberal_form | crispy}}
+        </table><br>
+    <input style="float:right; margin-right:30px;" class="btn btn-dark" type="submit" value="제출"><br>
+</form>
+
+{% endblock %}

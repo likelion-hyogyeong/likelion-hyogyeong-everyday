@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+    <div class="card detail-card">
+        <div class="detail-card-body">
+        <h5 class="detail-card-title">{{blog.title}}</h5>
+        <p class="card-text"><span><</span>영역: <strong>{{blog.field}}</strong> / 평점: <strong id="score">{{blog.score}}</strong>></p>
+        <p class="detail-card-text">{{blog.body}}</p><br><br>
+        <div class="etc">
+            <p class="card-subtitle mb-2 text-muted">{{popular_detail.pub_date}}
+            </p>
+        </div><br>
+        <hr>
+    <p>댓글 목록</p>
+    {% for vv in popular_detail.comments.all %}
+    <hr>
+    <div class="comment">
+        <div class="card-subtitle mb-2 text-muted date"><p>{{ vv.text|linebreaks }}</p><small>{{ vv.created_date }} </small>
+        </div>
+    </div>
+    {% empty %}
+        <div class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+    {% endfor %}
+        </div>
+    </div>
+    <a href="{% url 'home' %}" class="back">뒤로 가기</a>
+</body>
+{% endblock%}

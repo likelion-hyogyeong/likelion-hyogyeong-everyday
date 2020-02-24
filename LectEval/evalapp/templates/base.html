@@ -1,0 +1,320 @@
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </head>
+  
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+      <meta name="generator" content="Jekyll v3.8.6">
+      <title>LectEval</title>
+  
+      <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/blog/">
+  
+      <!-- Bootstrap core CSS -->
+  <link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  
+      <!-- Favicons -->
+  <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+  <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
+  <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#563d7c">
+  
+  
+  <style>
+    @font-face { 
+      font-family: 'InkLipquid'; 
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/InkLipquid.woff') format('woff'); 
+      font-weight: normal; 
+      font-style: normal; 
+    }
+    @font-face { 
+      font-family: 'Cafe24Oneprettynight'; 
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff') format('woff'); 
+      font-weight: normal; 
+      font-style: normal; 
+    }
+    @font-face { 
+      font-family: 'TDTDTadakTadak'; 
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/TDTDTadakTadak.woff') format('woff'); 
+      font-weight: normal; 
+      font-style: normal; 
+    }
+    @font-face { 
+      font-family: 'Katuri'; 
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_13@1.0/Katuri.woff') format('woff'); 
+      font-weight: normal; 
+      font-style: normal; 
+    }
+    @font-face { 
+      font-family: 'designhouseOTFLight00'; 
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/designhouseOTFLight00.woff') format('woff'); 
+      font-weight: normal; 
+      font-style: normal; 
+    }
+    @font-face { 
+      font-family: 'Cafe24Dongdong'; 
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Dongdong.woff') format('woff'); 
+      font-weight: normal; 
+      font-style: normal; 
+    }
+    @font-face { 
+      font-family: '777Flowerbear'; 
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/777Flowerbear.woff') format('woff'); 
+      font-weight: normal; 
+      font-style: normal; 
+    }
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+    .search_button {
+      background-color: transparent !important;
+      border: none;
+      color: #FFFFFF;
+    }
+    #put{
+      width: 300px; 
+      margin-top:10px;
+      height: 50px; 
+      margin-bottom: -20px; 
+      margin-top: 25px;
+      border: solid rgb(177, 174, 174) 2px;
+      border-radius: 5px;
+      padding-left: 15px;
+    }
+    .blog-footer{
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      padding: 15px 0;
+      text-align: center;
+    }
+    .footer{
+      margin-top: 100px;
+      font-family: 'InkLipquid';
+    }
+    .menu {
+      font-size: 17px;
+      color:240b36;
+    }
+    .menu:hover {
+      font-size:20px;
+      text-decoration: none;
+    }
+    .blog-header-logo{
+      font-weight: bolder;
+      color:#240b36;
+      font-size: 60px;
+      font-family: 'TDTDTadakTadak';
+    }
+    .blog-header-logo:hover{
+      text-decoration: none;
+      color:rgb(73, 72, 72);
+    }
+    .hr{
+      width:3px;
+      color: lightblue;
+    }
+    #month, #else{
+      color:rgb(87, 84, 84);
+      font-family: 'TDTDTadakTadak';
+      font-size: 20px;
+    }
+    #month:hover, #else:hover{
+      color:#4A00E0;
+    }
+    #warning{
+      color: crimson;
+      font-family: 'JSDongkang';
+    }
+    .card{
+      margin:10px 0px 25px 0px;
+      width:100%;
+      height:auto;
+      font-family: 'designhouseOTFLight00';
+      font-size: 19px;
+      border:solid 1px #240b36;
+    }
+    .card-body{
+      padding:15px 10px 0px 30px;
+    }
+    .card-body-title{
+      font-size: 25px;
+    }
+    .card-body-contents{
+      margin-top:5px;
+      color:black;
+      font-size: 26px;
+    }
+    .card-body-contents:hover{
+      text-decoration: none;
+      color: #4A00E0;
+    }
+    .write{
+      background-color: white;
+      padding: 5px 13px 5px 13px;
+      border:solid #86A8E7 2px;
+      border-radius: 3px;
+      color: black;
+      font-size: 25px;
+      font-family: '777Flowerbear';
+      margin-left:92%;
+    }
+    .write:hover{
+      color:black;
+      text-decoration: none;
+      font-size:27px;
+    }
+    .pgn{
+      color:black;
+      font-size:30px;
+      font-family: 'designhouseOTFLight00';
+    }
+    .pgn:hover{
+      text-decoration: none;
+      color:#4A00E0;
+    }
+    .detail-card{
+        padding:50px;
+        height:auto;
+    }
+    .detail-card-title{
+        font-size:50px;
+        margin-bottom: 15px;
+        font-weight:bold;
+     }
+    .etc{
+      margin-left:70%;
+    }
+    .detail-card-text{
+        padding:20px;
+        font-size: 25px;
+    }
+    .card-link, .detail-href{
+        color:#240b36;
+    }
+    .back{
+        margin-left: 90%;
+        font-family: 'TDTDTadakTadak';
+        font-size: 30px;
+        color:#240b36;
+    }
+    .back:hover{
+        color:#544a7d;
+        text-decoration: none;
+    }
+    .comment-button{
+        background-color: white;
+        color: black;
+        border: 2px solid #555555;
+        border-radius: 2px;
+        margin-left:53%;
+    }
+    .comment-button:hover{
+        background-color:#969595;
+    }
+    .comment-box{
+        width:60%;
+        height:130;
+    }
+    #score{
+      color:red;
+      font-size:25px;
+      font-weight:bold;
+    }
+    .comment{
+      color:black;
+    }
+    .search{
+      font-size: 20px;
+      color:#240b36;
+      font-family: 'designhouseOTFLight00';
+    }
+    .search:hover{
+      text-decoration: none;
+    }
+    .btn-block {
+      background-color: #457fca;
+    }
+  </style>
+      <!-- Custom styles for this template -->
+      <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+      <!-- Custom styles for this template -->
+      <link href="blog.css" rel="stylesheet">
+  </head>
+    <body>
+      <div class="container">
+    <header class="blog-header py-3">
+      <div class="row flex-nowrap justify-content-between align-items-center">
+        <div class="col-4 pt-1">
+          <p class="text-muted" >likelion..HK</p>
+        </div>
+        <div class="col-4 text-center">
+          <a class="blog-header-logo" href="{% url 'home' %}">EveryDay</a>
+        </div>
+        <div class=" justify-content-end align-items-center">
+            <form action="{% url 'search'%}" method="GET" id = "search_form">
+              <input id="put" type="text" name="search" value="{{search}}" placeholder="검색어..">
+              <button  class="btn btn-sm btn-outline-secondary" id = "search_button" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="30" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24" focusable="false"><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg></button>
+            </form>
+          </a>
+        </div>
+      </div>
+    </header>
+  
+      <div class="nav-scroller py-1 mb-2">
+        <nav class="nav d-flex justify-content-between">
+          <p class="p-2" >||</p>
+          <a class="p-2 new menu" href="{% url 'home_new' %}">글쓰기</a>
+          <p class="p-2" >||</p>
+          <a class="p-2 major menu" href="{% url 'major' %}">전공</a>
+          <p class="p-2" >||</p>
+          <a class="p-2 elective menu" href="{% url 'elective' %}">선택</a>
+          <p class="p-2" >||</p>
+          <a class="p-2 liberal menu" href="{% url 'liberal' %}">교양</a>
+          <p class="p-2" >|||</p>
+          <a class="p-2 recent menu" href="{% url 'new' %}">최신</a>
+          <p class="p-2" >||</p>
+          <a class="p-2 popular menu" href="{% url 'popular' %}">인기</a>
+          <p class="p-2" >||</p>
+        </nav>
+      </div>
+  
+    {% block content %}
+  
+    {% endblock %}
+  
+      
+      <footer class="blog-footer footer">
+        <hr id='hr'>
+        <p>Designed by Bootstrap & H.K Shin <br> Made by H.K Shin</p>
+        <p>
+          <a href="#">Back to top</a>
+        </p>
+      </footer>
+    </div>  
+    </body>
+  </html>
+  
+  

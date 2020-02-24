@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+  <style>
+    .jumbotron{
+      background: linear-gradient(to right, #457fca,#5691c8);
+    }
+    .about {
+      background-color:  #cfeef3;
+    }
+    #look-around{
+      font-family: 'InkLipquid';
+      font-size: 20px;;
+    }
+    .big-title{
+      font-family: 'TDTDTadakTadak'; 
+    }
+    .contents{
+      font-family: 'Cafe24Oneprettynight';
+    }
+    .about {
+      font-family: 'TDTDTadakTadak';
+      font-size: 20px;
+    }
+    #more{
+    margin-left: 630px;
+    font-size: 20px;;
+    color:darkgrey;
+    }
+    #more:hover{
+      text-decoration: none;
+      color:4A00E0;
+    }
+    .blog-post-title{
+      font-family: 'Katuri';
+    }
+  </style>
+</head>
+<body>
+  <div  style = "width: 100%; " class="jumbotron p-4 p-md-5 text-white rounded">
+      <div >
+        <h2 class="display-4 big-title">언제나 어디든 손쉽게!</h2><br>
+        <p class="contetns">학교를 지키는 기둥같은 당신, 바로 학교의 주인공입니다!<br><br>
+          우리학교의 모두가 행복한 주인공이 될 수 있도록 소중한 강의평가를 남겨주세요!</p>
+        <p class="lead mb-0"></p>
+      </div>
+  </div>
+
+  <main role="main" class="container">
+    <div class="row">
+      <div class="col-md-8 blog-main">
+        <h3 class="pb-4 mb-4  border-bottom">
+          <small id="look-around">둘러보기 ↓ ↓</small>
+        </h3>
+  
+        <div class="blog-post">
+          <h2 class="blog-post-title">최근 후기</h2>
+          <small><p class="blog-post-meta">최근에 씌어진 수강후기를 읽어보세요!</p></small>
+          
+            {% for a in new.all %}
+            <div class="card" style="height:150px;">
+              <div class="card-body" >
+                <strong>Title: {{a.title}}</strong><br>
+                <small>{{a.pub_date}}</small><br>
+                영역: <strong>{{a.field}}</strong> / 평점: <strong id="score">{{a.score}}</strong><br>
+                <div class="card-body-contents"><a href="{% url 'new_detail' a.id %}" class="card-body-contents">{{a.short}}...</a></div><br><br>
+              </div>
+            </div>    
+            {% endfor %}
+            <a href="{% url 'new' %}" class="btn btn-light" id="more">more</a>    
+        </div>
+        <hr style="height:10px; margin: 25px;;">
+        <div class="blog-post">
+          <h2 class="blog-post-title">인기 강의</h2>
+            <small><p class="blog-post-meta">높은 평점을 받은 '꿀'강의를 찾아보세요! </p></small>
+              {% for b in popular.all %}
+              <div class="card" style="height:150px;">
+                <div class="card-body">
+                  <strong>Title: {{b.title}}</strong><br>
+                  <small>{{b.pub_date}}</small><br>
+                  영역: <strong>{{b.field}}</strong> / 평점: <strong id="score">{{b.score}}</strong><br>
+                  <div class="card-body-contents"><a href="{% url 'popular_detail' b.id %}" class="card-body-contents">{{b.short}}...</a></div><br><br>
+                </div>
+              </div>
+              {% endfor %}
+              <a href="{% url 'popular' %}" class="btn btn-light" id="more">more</a>
+          </div>
+        </div>
+
+    <aside class="col-md-4 blog-sidebar">
+      <div class="p-4 mb-3 rounded about">
+        <h4 class="about"><strong>우리는...</strong></h4>
+        <p class="mb-0">여러분의 소중한 시간과 돈을 헛되이 쓰지 않고 최대한 알차게 쓰길 바라며 만들어졌습니다. 여러분이 자신에게 꼭! 맞는 강의를 찾을 수 있도록
+          강의평가를 볼 수 있으며 강의를 듣고난 후기를 다른 학우들과 공유할 수도 있습니다.</p>
+      </div>
+
+      <div class="p-4">
+        <h4 >Archives</h4>
+        <ol class="list-unstyled mb-0">
+          <li><a href="{% url 'empty' %}" id="month">January 2020</a></li>
+          <li><a href="{% url 'February' %}" id="month">February 2020</a></li><br>
+          
+          <li><a href="{% url 'empty' %}" id="month">December 2020</a></li>
+          <li><a href="{% url 'empty' %}" id="month">November 2020</a></li>
+          <li><a href="{% url 'empty' %}" id="month">October 2020</a></li>
+          <li><a href="{% url 'empty' %}" id="month">September 2020</a></li>
+          <li><a href="{% url 'empty' %}" id="month">August 2020</a></li>
+          <li><a href="{% url 'empty' %}" id="month">July 2020</a></li>
+          <li><a href="{% url 'empty' %}" id="month">June 2020</a></li>
+          <li><a href="{% url 'empty' %}" id="month">May 2020</a></li>
+          <li><a href="{% url 'empty' %}" id="month">April 2020</a></li>
+          <li><a href="{% url 'empty' %}" id="month">March 2020</a></li>
+        </ol>
+      </div>
+
+      <div class="p-4">
+        <h4 >Elsewhere</h4>
+        <ol class="list-unstyled">
+          <li><a href="https://github.com/" target="_blank" id="else">GitHub</a></li>
+          <li><a href="https://twitter.com/" target="_blank" id="else">Twitter</a></li>
+          <li><a href="https://www.facebook.com/" target="_blank" id="else">Facebook</a></li>
+        </ol>
+      </div>
+    </aside>
+  {% endblock %}
+    </div>
+  </main>
+</body>

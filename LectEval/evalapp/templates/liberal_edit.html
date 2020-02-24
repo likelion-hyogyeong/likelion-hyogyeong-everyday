@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<head>
+    <style>
+        .liberal{
+            font-weight: bold;
+            font-size:20px;
+        }
+    </style>
+</head>
+
+<form method="POST" >
+    {% csrf_token %}
+    {{liberal_form|crispy}}
+    <input class="btn btn-block" type="submit" value="Done">
+</form>
+
+{% endblock %}

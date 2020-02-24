@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+    <style>
+        .popular{
+            font-weight: bold;
+            font-size:20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card detail-card">
+        <div class="detail-card-body">
+        <h5 class="detail-card-title">{{popular_detail.title}}</h5>
+        <p class="card-text">&emsp;<영역: <strong>{{popular_detail.field}}</strong> / 평점: <strong id="score">{{popular_detail.score}}</strong></p>
+        <p class="detail-card-text">{{popular_detail.body}}</p><br><br>
+        <div class="etc">
+            <p class="card-subtitle mb-2 text-muted">{{popular_detail.pub_date}}
+            </p>
+        </div><br><hr>
+    <p>댓글 목록</p>
+    {% for vv in popular_detail.comments.all %}
+    <hr>
+    <div class="comment">
+        <div class="card-subtitle mb-2 text-muted date"><p>{{ vv.text|linebreaks }}</p><small>{{ vv.created_date }} </small>
+        </div>
+    </div>
+    {% empty %}
+        <div class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+    {% endfor %}
+        </div>
+    </div>
+    <a href="{% url 'popular' %}" class="back">뒤로 가기</a>
+</body>
+{% endblock %}

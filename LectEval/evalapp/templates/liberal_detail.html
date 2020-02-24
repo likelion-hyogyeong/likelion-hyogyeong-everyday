@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+    <style>
+        .liberal{
+            font-weight: bold;
+            font-size:20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card detail-card">
+        <div class="detail-card-body">
+        <h5 class="detail-card-title">{{liberal_detail.title}}</h5>
+        <p class="card-text">&emsp;<영역: <strong>{{liberal_detail.field}}</strong> / 평점: <strong id="score">{{liberal_detail.score}}</strong>></p>
+        <p class="detail-card-text">{{liberal_detail.body}}</p><br><br>
+        <div class="etc">
+            <p class="card-subtitle mb-2 text-muted">{{liberal_detail.pub_date}}&emsp;
+            <a href="{% url 'liberal_delete' liberal_detail.id %}" class="card-link">삭제</a> 
+            <a href="{% url 'liberal_edit' liberal_detail.id %}" class="card-link">수정</a>
+            </p>
+        </div>
+    <hr><br>
+    <form action="{% url 'l_comment_create' liberal_detail.id %}" method=POST>
+        {% csrf_token %}
+        <p><input type="text" name="text" class="comment-box" placeholder="댓글안에 당신의 선함도 담아주세요^^"></p>
+        <button type="submit" class="comment-button">댓글달기</button>
+    </form>
+    <br>
+    {% for vv in liberal_detail.comments.all %}
+    <hr>
+    <div class="comment">
+        <div class="card-subtitle mb-2 text-muted date"><p>{{ vv.text|linebreaks }}</p><small>{{ vv.created_date }} 
+            <a href="{% url 'l_comment_delete' liberal_detail.id vv.id %}" class="detail-href">삭제</a>
+            <a href="{% url 'l_comment_edit' liberal_detail.id vv.id %}" class="detail-href">수정</a></small>
+        </div>
+    </div>
+    {% empty %}
+        <div class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+    {% endfor %}
+        </div>
+    </div>
+    <a href="{% url 'liberal' %}" class="back">뒤로 가기</a>
+</body>
+{% endblock %}
